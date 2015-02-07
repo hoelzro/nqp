@@ -387,6 +387,8 @@ class QAST::OperationsJS {
     }
 
     add_simple_op('isstr', $T_BOOL, [$T_OBJ], sub ($obj) {"(typeof $obj == 'string')"});
+    add_simple_op('isint', $T_BOOL, [$T_OBJ], sub ($obj) {"((typeof $obj == 'number') && (Math.floor($obj) === $obj))"});
+    add_simple_op('isnum', $T_BOOL, [$T_OBJ], sub ($obj) {"(typeof $obj == 'number')"});
 
     add_simple_op('chars', $T_INT, [$T_STR], sub ($string) {"$string.length"});
 
